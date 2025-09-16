@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Hero from "@/components/Hero";
-import EnhancedHeroSlider from "@/components/EnhancedHeroSlider";
+import EdwardMartinHero from "@/components/EdwardMartinHero";
 import Categories from "@/components/Categories";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
@@ -9,7 +8,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
 import OptimizedCursorEffects from "@/components/OptimizedCursorEffects";
-import EnhancedLoadingScreen from "@/components/EnhancedLoadingScreen";
+import ModernLoadingScreen from "@/components/ModernLoadingScreen";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,14 +39,14 @@ const Index = () => {
   return (
     <>
       <SEO />
-      <EnhancedLoadingScreen isLoading={isLoading} onComplete={handleLoadingComplete} />
+      <ModernLoadingScreen isLoading={isLoading} onComplete={handleLoadingComplete} />
       <OptimizedCursorEffects />
       
       {showContent && (
         <div className="min-h-screen">
           <Header />
           <main>
-            <EnhancedHeroSlider />
+            <EdwardMartinHero />
             <Categories />
             <ProductShowcase />
             <Services />

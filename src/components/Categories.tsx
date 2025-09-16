@@ -13,7 +13,7 @@ import {
   Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import materialsImage from "@/assets/materials-showcase.jpg";
+import { categoryImages } from "@/assets/imageAssets";
 
 const Categories = () => {
   const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
@@ -27,7 +27,7 @@ const Categories = () => {
       title: "Premium Tiles",
       description: "Luxury ceramic, marble, and designer tiles for elegant floors and walls",
       items: ["Marble Collection", "Ceramic Elegance", "Mosaic Artistry"],
-      color: "from-primary to-primary-dark",
+      color: "from-pink-500 to-purple-600",
       price: "From KES 1,500/sqm"
     },
     {
@@ -273,7 +273,7 @@ const Categories = () => {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-luxury">
                 <img 
-                  src={materialsImage}
+                  src={categoryImages.tilesShowcase}
                   alt="Premium Materials Showcase"
                   className="w-full h-full object-cover hover-scale"
                 />

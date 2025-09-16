@@ -11,6 +11,7 @@ import {
   Play
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { servicesImages } from "@/assets/imageAssets";
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
@@ -27,7 +28,7 @@ const Services = () => {
         "Custom furniture selection",
         "Color scheme consultation"
       ],
-      image: "/api/placeholder/600/400",
+      image: servicesImages.residentialDesign,
       price: "Starting from KES 150,000",
       duration: "4-8 weeks"
     },
@@ -42,7 +43,7 @@ const Services = () => {
         "Retail space optimization",
         "Brand-aligned aesthetics"
       ],
-      image: "/api/placeholder/600/400",
+      image: servicesImages.commercialDesign,
       price: "Starting from KES 300,000",
       duration: "6-12 weeks"
     },
@@ -57,7 +58,7 @@ const Services = () => {
         "Acoustic optimization",
         "Lighting for ambiance"
       ],
-      image: "/api/placeholder/600/400",
+      image: servicesImages.hospitalityDesign,
       price: "Starting from KES 500,000",
       duration: "8-16 weeks"
     },
@@ -72,7 +73,7 @@ const Services = () => {
         "Pool area design",
         "Lighting & irrigation"
       ],
-      image: "/api/placeholder/600/400",
+      image: servicesImages.consultation,
       price: "Starting from KES 200,000",
       duration: "3-6 weeks"
     },
@@ -87,7 +88,7 @@ const Services = () => {
         "Project management",
         "Quality assurance"
       ],
-      image: "/api/placeholder/600/400",
+      image: servicesImages.residentialDesign,
       price: "Starting from KES 800,000",
       duration: "12-24 weeks"
     }

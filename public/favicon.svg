@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#1A1B23"/>
+  
+  <!-- Main geometric shape representing tiles -->
+  <rect x="6" y="6" width="9" height="9" rx="1" fill="#8B1C3F" stroke="#E84C88" stroke-width="0.5"/>
+  <rect x="17" y="6" width="9" height="9" rx="1" fill="#5D1A2B" stroke="#8B1C3F" stroke-width="0.5"/>
+  <rect x="6" y="17" width="9" height="9" rx="1" fill="#5D1A2B" stroke="#8B1C3F" stroke-width="0.5"/>
+  <rect x="17" y="17" width="9" height="9" rx="1" fill="#8B1C3F" stroke="#E84C88" stroke-width="0.5"/>
+  
+  <!-- Central accent -->
+  <circle cx="16" cy="16" r="2" fill="#F9FAFB"/>
+  
+  <!-- Corner details -->
+  <rect x="8" y="8" width="2" height="2" rx="0.5" fill="#F9FAFB" opacity="0.8"/>
+  <rect x="22" y="8" width="2" height="2" rx="0.5" fill="#F9FAFB" opacity="0.8"/>
+  <rect x="8" y="22" width="2" height="2" rx="0.5" fill="#F9FAFB" opacity="0.8"/>
+  <rect x="22" y="22" width="2" height="2" rx="0.5" fill="#F9FAFB" opacity="0.8"/>
+</svg>

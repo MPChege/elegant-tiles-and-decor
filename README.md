@@ -1,73 +1,181 @@
-# Welcome to your Lovable project
+# Elegant Tiles & Decor
 
-## Project info
+> Premium Interior Design Solutions - Transform Your Space with Luxury & Elegance
 
-**URL**: https://lovable.dev/projects/d0432d3d-72d2-4f6f-af2c-c66395e8fb29
+## About This Project
 
-## How can I edit this code?
+Elegant Tiles & Decor is a modern, responsive web application showcasing premium tiles, lighting, and interior decor solutions. Built with cutting-edge technologies to deliver an exceptional user experience that reflects the luxury and sophistication of our brand.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+✨ **Modern Design** - Clean, elegant interface inspired by luxury interior design websites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d0432d3d-72d2-4f6f-af2c-c66395e8fb29) and start prompting.
+🎨 **Interactive Hero Section** - Dynamic image carousel with smooth transitions
 
-Changes made via Lovable will be committed automatically to this repo.
+📱 **Fully Responsive** - Optimized for all devices and screen sizes
 
-**Use your preferred IDE**
+⚡ **Fast Performance** - Built with Vite for lightning-fast loading
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🔍 **SEO Optimized** - Comprehensive meta tags and structured data
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🎭 **Smooth Animations** - Framer Motion powered interactions
 
-Follow these steps:
+🛒 **Product Showcase** - Beautiful galleries for tiles and decor items
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+📧 **Contact Forms** - Easy inquiry and consultation booking
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Technology Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+This project leverages modern web technologies for optimal performance:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- **Frontend Framework**: React 18.3.1 with TypeScript
+- **Build Tool**: Vite 5.4.19 for fast development and builds
+- **Styling**: Tailwind CSS 3.4.17 for responsive design
+- **UI Components**: Custom components built with Shadcn-UI
+- **Animations**: Framer Motion for smooth interactions
+- **Routing**: React Router DOM for seamless navigation
+- **Code Quality**: ESLint for consistent code standards
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn package manager
+- Git for version control
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd elegant-tiles-and-decor
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173` to view the application
+
+## Available Scripts
+
+```bash
+# Start development server with hot reload
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Run linting
+npm run lint
 ```
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components
+│   ├── EdwardMartinHero.tsx    # Main hero section
+│   ├── ModernLoadingScreen.tsx # Loading screen
+│   └── ...             # Other components
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── assets/             # Images and static files
+```
 
-**Use GitHub Codespaces**
+## Key Components
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Hero Section
+The hero section features a modern design inspired by luxury interior websites with:
+- Large, smooth-transitioning image carousel
+- Dynamic background switching
+- Responsive layout for all devices
+- Professional typography and spacing
 
-## What technologies are used for this project?
+### Loading Screen
+Custom loading screen with:
+- Elegant animations
+- Progress indicators
+- Brand-consistent design
+- Smooth transitions
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The application is production-ready and can be deployed to any static hosting service:
 
-## How can I deploy this project?
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/d0432d3d-72d2-4f6f-af2c-c66395e8fb29) and click on Share -> Publish.
+2. **Deploy the `dist` folder** to your hosting provider
 
-## Can I connect a custom domain to my Lovable project?
+Popular hosting options:
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
+- DigitalOcean App Platform
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+We welcome contributions! Please follow these steps:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Code Style
+
+This project follows:
+- **TypeScript** for type safety
+- **ESLint** for code quality
+- **Prettier** formatting (recommended)
+- **Tailwind CSS** for consistent styling
+
+## Performance
+
+The application is optimized for performance with:
+- Lazy loading of images
+- Code splitting
+- Optimized assets
+- Minimal bundle size
+- Fast loading times
+
+## Browser Support
+
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
+
+## License
+
+This project is proprietary software. All rights reserved.
+
+## Contact
+
+For inquiries about this project or our services:
+
+- **Website**: [Elegant Tiles & Decor](#)
+- **Email**: info@eleganttilesdecor.com
+- **Phone**: +254 XXX XXX XXX
+
+---
+
+**Made with ❤️ for beautiful interiors**

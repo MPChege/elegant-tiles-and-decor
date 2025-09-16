@@ -6,14 +6,23 @@ import { Input } from "@/components/ui/input";
 import SEO from "@/components/SEO";
 import Layout from "@/components/Layout";
 import ProductDetail from "@/components/ProductDetail";
+import { productImages } from "@/assets/imageAssets";
 
-// Import product images
-import marbleBeige from "@/assets/products/marble-beige.jpg";
-import woodOak from "@/assets/products/wood-oak.jpg";
-import mosaicMaroon from "@/assets/products/mosaic-maroon.jpg";
-import terrazzoRose from "@/assets/products/terrazzo-rose.jpg";
-import concreteGrey from "@/assets/products/concrete-grey.jpg";
-import ceramicWhite from "@/assets/products/ceramic-white.jpg";
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice?: number | null;
+  image: string;
+  rating: number;
+  reviews: number;
+  inStock: boolean;
+  bestseller?: boolean;
+  new?: boolean;
+  featured?: boolean;
+  tags: string[];
+}
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -41,11 +50,11 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: "Premium Marble Collection",
+      name: "Rose Marble Elegance",
       category: "floor-tiles",
       price: 2850,
       originalPrice: 3200,
-      image: marbleBeige,
+      image: productImages.marbleRose,
       rating: 4.9,
       reviews: 128,
       inStock: true,
@@ -54,24 +63,24 @@ const Products = () => {
     },
     {
       id: 2,
-      name: "Luxury Wood-Look Porcelain",
-      category: "floor-tiles",
-      price: 1950,
-      originalPrice: 2300,
-      image: woodOak,
-      rating: 4.8,
+      name: "Purple Ceramic Dreams",
+      category: "ceramic",
+      price: 1250,
+      originalPrice: null,
+      image: productImages.ceramicPurple,
+      rating: 4.7,
       reviews: 95,
       inStock: true,
       new: true,
-      tags: ["Wood-look", "Porcelain", "Modern"]
+      tags: ["Ceramic", "Modern", "Purple"]
     },
     {
       id: 3,
-      name: "Designer Mosaic Series",
+      name: "Maroon Mosaic Artistry",
       category: "mosaic",
       price: 3200,
       originalPrice: null,
-      image: mosaicMaroon,
+      image: productImages.mosaicMaroon,
       rating: 4.9,
       reviews: 67,
       inStock: true,
@@ -80,40 +89,78 @@ const Products = () => {
     },
     {
       id: 4,
-      name: "Elegant Terrazzo Collection",
+      name: "Pink Porcelain Collection",
       category: "floor-tiles",
-      price: 2100,
-      originalPrice: 2450,
-      image: terrazzoRose,
-      rating: 4.7,
+      price: 1890,
+      originalPrice: 2100,
+      image: productImages.porcelainPink,
+      rating: 4.6,
       reviews: 84,
       inStock: true,
-      tags: ["Terrazzo", "Elegant", "Contemporary"]
+      tags: ["Porcelain", "Pink", "Contemporary"]
     },
     {
       id: 5,
-      name: "Modern Concrete Finish",
-      category: "wall-tiles",
-      price: 1650,
+      name: "Granite Stone Luxury",
+      category: "natural-stone",
+      price: 4200,
       originalPrice: null,
-      image: concreteGrey,
-      rating: 4.6,
+      image: productImages.stoneGranite,
+      rating: 4.8,
       reviews: 52,
-      inStock: false,
-      tags: ["Concrete", "Industrial", "Modern"]
+      inStock: true,
+      bestseller: true,
+      tags: ["Granite", "Natural", "Premium"]
     },
     {
       id: 6,
-      name: "Classic Ceramic White",
-      category: "ceramic",
-      price: 890,
-      originalPrice: 1100,
-      image: ceramicWhite,
+      name: "Wood Laminate Elegance",
+      category: "floor-tiles",
+      price: 2100,
+      originalPrice: 2400,
+      image: productImages.woodLaminate,
       rating: 4.5,
       reviews: 203,
       inStock: true,
-      bestseller: true,
-      tags: ["Classic", "Ceramic", "Timeless"]
+      tags: ["Wood-look", "Laminate", "Warm"]
+    },
+    {
+      id: 7,
+      name: "Crystal Chandelier Luxury",
+      category: "lighting",
+      price: 15800,
+      originalPrice: null,
+      image: productImages.chandelierCrystal,
+      rating: 5.0,
+      reviews: 45,
+      inStock: true,
+      featured: true,
+      tags: ["Crystal", "Chandelier", "Luxury"]
+    },
+    {
+      id: 8,
+      name: "Modern Pendant Collection",
+      category: "lighting",
+      price: 4500,
+      originalPrice: null,
+      image: productImages.pendantModern,
+      rating: 4.7,
+      reviews: 92,
+      inStock: true,
+      new: true,
+      tags: ["Modern", "Pendant", "Contemporary"]
+    },
+    {
+      id: 9,
+      name: "Wall Sconce Elegance",
+      category: "lighting",
+      price: 2800,
+      originalPrice: 3200,
+      image: productImages.wallSconces,
+      rating: 4.6,
+      reviews: 78,
+      inStock: true,
+      tags: ["Sconce", "Wall", "Elegant"]
     }
   ];
 
@@ -124,13 +171,13 @@ const Products = () => {
     return categoryMatch && searchMatch;
   });
 
-  const getSimilarProducts = (currentProduct: any) => {
+  const getSimilarProducts = (currentProduct: Product) => {
     return products
       .filter(p => p.id !== currentProduct.id && p.category === currentProduct.category)
       .slice(0, 4);
   };
 
-  const ProductCard = ({ product, index }: { product: any; index: number }) => (
+  const ProductCard = ({ product, index }: { product: Product; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -149,7 +196,7 @@ const Products = () => {
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {product.bestseller && (
-            <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
               Bestseller
             </span>
           )}

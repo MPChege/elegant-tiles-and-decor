@@ -33,7 +33,7 @@ const ProductShowcase = () => {
         id: 1,
         name: "Marble Elegance",
         price: "KES 2,500/sqm",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6354f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.9,
         description: "Premium Italian marble tiles with natural veining"
       },
@@ -41,7 +41,7 @@ const ProductShowcase = () => {
         id: 2,
         name: "Modern Ceramic",
         price: "KES 1,800/sqm",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.7,
         description: "Contemporary ceramic tiles for modern spaces"
       },
@@ -49,7 +49,7 @@ const ProductShowcase = () => {
         id: 3,
         name: "Rustic Stone",
         price: "KES 3,200/sqm",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.8,
         description: "Natural stone tiles with authentic texture"
       }
@@ -59,7 +59,7 @@ const ProductShowcase = () => {
         id: 4,
         name: "Crystal Chandelier",
         price: "KES 45,000",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 5.0,
         description: "Elegant crystal chandelier for luxury spaces"
       },
@@ -67,7 +67,7 @@ const ProductShowcase = () => {
         id: 5,
         name: "Modern Pendant",
         price: "KES 8,500",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1571509595382-0877c7e7a7b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.6,
         description: "Minimalist pendant light for contemporary homes"
       }
@@ -77,7 +77,7 @@ const ProductShowcase = () => {
         id: 6,
         name: "Royal Burgundy",
         price: "KES 3,500/5L",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1582582494215-19b363eac9a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.8,
         description: "Premium wall paint in royal burgundy"
       },
@@ -85,7 +85,7 @@ const ProductShowcase = () => {
         id: 7,
         name: "Pearl White",
         price: "KES 3,200/5L",
-        image: "/api/placeholder/400/400",
+        image: "https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
         rating: 4.9,
         description: "Elegant pearl white with subtle shimmer"
       }
@@ -225,6 +225,8 @@ const ProductShowcase = () => {
               <button
                 onClick={prevProduct}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
+                aria-label="Previous product"
+                title="Previous product"
               >
                 <ArrowLeft className="h-5 w-5" />
               </button>
@@ -232,6 +234,8 @@ const ProductShowcase = () => {
               <button
                 onClick={nextProduct}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
+                aria-label="Next product"
+                title="Next product"
               >
                 <ArrowRight className="h-5 w-5" />
               </button>
@@ -247,6 +251,8 @@ const ProductShowcase = () => {
                         ? "bg-primary scale-125"
                         : "bg-white/50 hover:bg-white/80"
                     }`}
+                    aria-label={`View product ${index + 1}`}
+                    title={`View product ${index + 1}`}
                   />
                 ))}
               </div>
@@ -305,6 +311,8 @@ const ProductShowcase = () => {
                     style={{
                       background: `hsl(${i * 60}, 50%, ${50 + i * 10}%)`,
                     }}
+                    aria-label={`Color option ${i + 1}`}
+                    title={`Color option ${i + 1}`}
                   />
                 ))}
               </div>
@@ -312,12 +320,20 @@ const ProductShowcase = () => {
 
             {/* Action Buttons */}
             <div className="flex gap-4 pt-4">
-              <Button className="btn-luxury flex-1">
+              <Button 
+                className="btn-luxury flex-1"
+                onClick={() => window.location.href = '/consultation'}
+              >
                 <ShoppingCart className="mr-2 h-4 w-4" />
-                Add to Cart
+                Book Consultation
               </Button>
               
-              <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => window.location.href = '/products'}
+              >
                 <Heart className="h-4 w-4" />
               </Button>
             </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import elegantLogo from "@/assets/elegant-logo.jpg";
 
 interface ModernLoadingScreenProps {
   isLoading: boolean;
@@ -8,13 +9,13 @@ interface ModernLoadingScreenProps {
 
 const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
-  const [currentText, setCurrentText] = useState("Preparing your experience");
+  const [currentText, setCurrentText] = useState("Preparing your elegant experience");
   const [logoVisible, setLogoVisible] = useState(false);
 
   const loadingTexts = [
-    "Preparing your experience",
+    "Preparing your elegant experience",
     "Curating premium collections",
-    "Arranging elegant displays",
+    "Arranging stunning displays",
     "Finalizing beautiful layouts"
   ];
 
@@ -55,7 +56,7 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900 flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-gradient-to-br from-primary via-primary-dark to-black flex items-center justify-center"
         >
           {/* Animated Grid Background */}
           <div className="absolute inset-0 opacity-20">
@@ -72,7 +73,7 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
             {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-pink-400/30 rounded-full"
+                className="absolute w-2 h-2 bg-primary-light/30 rounded-full"
                 style={{
                   left: `${20 + i * 10}%`,
                   top: `${30 + (i % 3) * 20}%`,
@@ -102,20 +103,20 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-12"
             >
-              {/* Modern Logo Design */}
+              {/* Elegant Logo with Glow Effect */}
               <div className="relative mb-6">
                 <motion.div
-                  className="w-20 h-20 mx-auto relative"
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  {/* Geometric logo shape */}
-                  <div className="absolute inset-0 border-2 border-pink-400/50 rounded-lg transform rotate-45" />
-                  <div className="absolute inset-2 border-2 border-white/30 rounded-lg transform -rotate-45" />
-                  <div className="absolute inset-4 bg-pink-400/20 rounded-lg" />
-                  <div className="absolute inset-6 bg-gradient-to-br from-pink-400 to-pink-600 rounded-sm" />
-                </motion.div>
+                  className="absolute inset-0 bg-gradient-to-r from-primary-light to-primary blur-xl opacity-50"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <img
+                    src={elegantLogo}
+                    alt="Elegant Tiles & Decor"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
 
               {/* Brand Text */}
@@ -124,15 +125,15 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
                 animate={logoVisible ? { y: 0, opacity: 1 } : {}}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                <h1 className="text-3xl font-light text-white mb-2 tracking-wide">
-                  Elegant Tiles
+                <h1 className="text-4xl font-display font-bold text-white mb-2">
+                  Elegant Tiles & Decor
                 </h1>
                 <div className="flex items-center justify-center gap-3 mb-1">
-                  <div className="w-8 h-px bg-pink-400" />
-                  <span className="text-pink-400 text-sm font-medium tracking-[0.2em]">
-                    & DECOR
+                  <div className="w-8 h-px bg-primary-light" />
+                  <span className="text-primary-light text-sm font-medium tracking-[0.2em]">
+                    AFFORDABLE ELEGANCE
                   </span>
-                  <div className="w-8 h-px bg-pink-400" />
+                  <div className="w-8 h-px bg-primary-light" />
                 </div>
                 <p className="text-white/60 text-sm tracking-wide">
                   Premium Design Solutions
@@ -164,21 +165,21 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
               <div className="w-80 mx-auto">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-white/50 text-sm tracking-wide">Loading</span>
-                  <span className="text-pink-400 text-sm font-medium tabular-nums">
+                  <span className="text-primary-light text-sm font-medium tabular-nums">
                     {Math.round(progress)}%
                   </span>
                 </div>
                 
-                <div className="relative w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="relative w-full h-2 bg-white/10 rounded-full overflow-hidden">
                   <motion.div
-                    className="absolute left-0 top-0 h-full bg-gradient-to-r from-pink-400 to-pink-500 rounded-full"
+                    className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary-light to-primary rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   />
                   {/* Shimmer effect */}
                   <motion.div
-                    className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                     animate={{ x: [-80, 320] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   />
@@ -190,7 +191,7 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
                 {[...Array(3)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="w-2 h-2 bg-pink-400/50 rounded-full"
+                    className="w-2 h-2 bg-primary-light/50 rounded-full"
                     animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.5, 1, 0.5],
@@ -207,10 +208,10 @@ const ModernLoadingScreen = ({ isLoading, onComplete }: ModernLoadingScreenProps
           </div>
 
           {/* Corner Decorations */}
-          <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-pink-400/30" />
-          <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-pink-400/30" />
-          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-pink-400/30" />
-          <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-pink-400/30" />
+          <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-primary-light/30" />
+          <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-primary-light/30" />
+          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-primary-light/30" />
+          <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-primary-light/30" />
         </motion.div>
       )}
     </AnimatePresence>

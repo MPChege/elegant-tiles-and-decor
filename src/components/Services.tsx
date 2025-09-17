@@ -200,12 +200,26 @@ const Services = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-luxury flex-1">
+                <Button 
+                  className="btn-luxury flex-1"
+                  onClick={() => window.location.href = '/consultation'}
+                >
                   Book Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <Button 
+                  variant="outline" 
+                  className="border-primary text-primary hover:bg-primary hover:text-white"
+                  onClick={() => {
+                    const portfolioSection = document.getElementById('portfolio');
+                    if (portfolioSection) {
+                      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/portfolio';
+                    }
+                  }}
+                >
                   <Play className="mr-2 h-4 w-4" />
                   View Portfolio
                 </Button>

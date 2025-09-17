@@ -182,7 +182,7 @@ const EdwardMartinHero = () => {
                   transition={{ delay: 0.6, duration: 0.8 }}
                 >
                   <Button 
-                    className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 text-lg font-medium rounded-none border-0 transition-all duration-300 hover:scale-105"
+                    className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 text-lg font-medium rounded-none border-0 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
                   >
                     {currentContent.cta}
                     <ChevronRight className="ml-2 h-5 w-5" />
@@ -190,7 +190,8 @@ const EdwardMartinHero = () => {
                   
                   <Button 
                     variant="outline" 
-                    className="border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg font-medium rounded-none transition-all duration-300"
+                    className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg font-medium rounded-none transition-all duration-300 shadow-lg hover:shadow-2xl bg-white/20 backdrop-blur-sm"
+                    aria-label={currentContent.secondaryCta}
                   >
                     <Play className="mr-2 h-4 w-4" />
                     {currentContent.secondaryCta}
@@ -265,37 +266,6 @@ const EdwardMartinHero = () => {
               >
                 <ChevronRight className="h-6 w-6 text-white" />
               </button>
-
-              {/* Thumbnail Preview Strip */}
-              <div className="absolute bottom-4 left-4 right-4 flex gap-3 z-10">
-                {heroSlides.map((slide, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`relative flex-1 h-16 overflow-hidden transition-all duration-300 ${
-                      index === currentSlide
-                        ? "ring-2 ring-pink-400 opacity-100"
-                        : "opacity-60 hover:opacity-80"
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/30" />
-                    {index === currentSlide && (
-                      <motion.div
-                        className="absolute inset-0 bg-pink-400/20"
-                        layoutId="activeThumb"
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </motion.button>
-                ))}
-              </div>
 
               {/* Progress Bar */}
               {isAutoplay && (

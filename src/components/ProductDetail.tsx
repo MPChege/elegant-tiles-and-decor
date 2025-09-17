@@ -14,11 +14,27 @@ import {
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice?: number | null;
+  image: string;
+  rating: number;
+  reviews: number;
+  inStock: boolean;
+  bestseller?: boolean;
+  new?: boolean;
+  featured?: boolean;
+  tags: string[];
+}
+
 interface ProductDetailProps {
-  product: any;
+  product: Product | null;
   isOpen: boolean;
   onClose: () => void;
-  similarProducts: any[];
+  similarProducts: Product[];
 }
 
 const ProductDetail = ({ product, isOpen, onClose, similarProducts }: ProductDetailProps) => {
@@ -142,7 +158,7 @@ const ProductDetail = ({ product, isOpen, onClose, similarProducts }: ProductDet
             <div className="border-t pt-4">
               <div className="flex items-center gap-3">
                 <span className="text-4xl font-bold text-primary">
-                  KES {product.price.toLocaleString()}
+                  KES {product.price.toLocaleString()}/sqm
                 </span>
                 {product.originalPrice && (
                   <span className="text-xl text-gray-400 line-through">

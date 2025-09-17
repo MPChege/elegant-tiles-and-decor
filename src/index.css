@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* Elegant Tiles & Decor Design System - Premium Interior Design & E-commerce */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -22,13 +22,13 @@
     --secondary: 240 5% 96%;
     --secondary-foreground: 255 6% 13%;
     
+    /* UI Elements */
     --muted: 240 5% 96%;
     --muted-foreground: 240 4% 46%;
     
     --accent: 276 100% 97%;
     --accent-foreground: 276 100% 35%;
     
-    /* UI Elements */
     --card: 0 0% 100%;
     --card-foreground: 255 6% 13%;
     

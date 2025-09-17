@@ -29,6 +29,7 @@ const Products = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [sortBy, setSortBy] = useState("featured");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -50,117 +51,105 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: "Rose Marble Elegance",
+      name: "Marble Elegance",
       category: "floor-tiles",
-      price: 2850,
-      originalPrice: 3200,
-      image: productImages.marbleRose,
+      price: 2500,
+      originalPrice: 2800,
+      image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6354f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
       rating: 4.9,
-      reviews: 128,
+      reviews: 156,
       inStock: true,
       bestseller: true,
       tags: ["Premium", "Marble", "Luxury"]
     },
     {
       id: 2,
-      name: "Purple Ceramic Dreams",
-      category: "ceramic",
-      price: 1250,
+      name: "Premium Italian Marble",
+      category: "floor-tiles",
+      price: 3200,
       originalPrice: null,
-      image: productImages.ceramicPurple,
-      rating: 4.7,
-      reviews: 95,
+      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      rating: 4.8,
+      reviews: 92,
       inStock: true,
-      new: true,
-      tags: ["Ceramic", "Modern", "Purple"]
+      featured: true,
+      tags: ["Italian", "Marble", "Premium"]
     },
     {
       id: 3,
-      name: "Maroon Mosaic Artistry",
-      category: "mosaic",
-      price: 3200,
-      originalPrice: null,
-      image: productImages.mosaicMaroon,
-      rating: 4.9,
+      name: "Designer Lighting Collection",
+      category: "lighting",
+      price: 8500,
+      originalPrice: 9200,
+      image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      rating: 4.7,
       reviews: 67,
       inStock: true,
-      featured: true,
-      tags: ["Mosaic", "Designer", "Unique"]
+      new: true,
+      tags: ["Designer", "Chandelier", "Luxury"]
     },
     {
       id: 4,
-      name: "Pink Porcelain Collection",
-      category: "floor-tiles",
-      price: 1890,
-      originalPrice: 2100,
-      image: productImages.porcelainPink,
+      name: "Wall Colors Premium",
+      category: "wall-tiles",
+      price: 1800,
+      originalPrice: 2000,
+      image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
       rating: 4.6,
       reviews: 84,
       inStock: true,
-      tags: ["Porcelain", "Pink", "Contemporary"]
+      tags: ["Wall", "Colors", "Premium"]
     },
     {
       id: 5,
-      name: "Granite Stone Luxury",
+      name: "Natural Stone Collection",
       category: "natural-stone",
       price: 4200,
-      originalPrice: null,
-      image: productImages.stoneGranite,
-      rating: 4.8,
-      reviews: 52,
+      originalPrice: 4800,
+      image: "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      rating: 4.9,
+      reviews: 124,
       inStock: true,
       bestseller: true,
-      tags: ["Granite", "Natural", "Premium"]
+      tags: ["Natural", "Stone", "Durable"]
     },
     {
       id: 6,
-      name: "Wood Laminate Elegance",
-      category: "floor-tiles",
-      price: 2100,
-      originalPrice: 2400,
-      image: productImages.woodLaminate,
+      name: "Ceramic Dreams",
+      category: "ceramic",
+      price: 1200,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
       rating: 4.5,
-      reviews: 203,
+      reviews: 78,
       inStock: true,
-      tags: ["Wood-look", "Laminate", "Warm"]
+      new: true,
+      tags: ["Ceramic", "Modern", "Affordable"]
     },
     {
       id: 7,
-      name: "Crystal Chandelier Luxury",
-      category: "lighting",
-      price: 15800,
-      originalPrice: null,
-      image: productImages.chandelierCrystal,
-      rating: 5.0,
-      reviews: 45,
+      name: "Luxury Porcelain",
+      category: "floor-tiles",
+      price: 2800,
+      originalPrice: 3200,
+      image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      rating: 4.8,
+      reviews: 96,
       inStock: true,
       featured: true,
-      tags: ["Crystal", "Chandelier", "Luxury"]
+      tags: ["Porcelain", "Luxury", "Durable"]
     },
     {
       id: 8,
-      name: "Modern Pendant Collection",
-      category: "lighting",
-      price: 4500,
-      originalPrice: null,
-      image: productImages.pendantModern,
-      rating: 4.7,
-      reviews: 92,
+      name: "Outdoor Tile Collection",
+      category: "outdoor-tiles",
+      price: 2100,
+      originalPrice: 2400,
+      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      rating: 4.4,
+      reviews: 63,
       inStock: true,
-      new: true,
-      tags: ["Modern", "Pendant", "Contemporary"]
-    },
-    {
-      id: 9,
-      name: "Wall Sconce Elegance",
-      category: "lighting",
-      price: 2800,
-      originalPrice: 3200,
-      image: productImages.wallSconces,
-      rating: 4.6,
-      reviews: 78,
-      inStock: true,
-      tags: ["Sconce", "Wall", "Elegant"]
+      tags: ["Outdoor", "Weatherproof", "Slip-resistant"]
     }
   ];
 
@@ -169,6 +158,13 @@ const Products = () => {
     const searchMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                        product.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return categoryMatch && searchMatch;
+  });
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-low") return a.price - b.price;
+    if (sortBy === "price-high") return b.price - a.price;
+    if (sortBy === "rating") return b.rating - a.rating;
+    return a.id - b.id; // Default sort by ID
   });
 
   const getSimilarProducts = (currentProduct: Product) => {
@@ -182,7 +178,7 @@ const Products = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group bg-white rounded-3xl shadow-card hover:shadow-luxury transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/20 cursor-pointer"
+      className="group bg-white rounded-3xl shadow-card hover:shadow-luxury transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/20 cursor-pointer relative"
       onClick={() => setSelectedProduct(product)}
     >
       {/* Image Container */}
@@ -222,7 +218,7 @@ const Products = () => {
           <Button 
             size="icon" 
             variant="ghost" 
-            className="bg-white/90 hover:bg-white shadow-md"
+            className="bg-white/90 hover:bg-white shadow-md backdrop-blur-sm"
             onClick={(e) => {
               e.stopPropagation();
               // Add to wishlist logic
@@ -233,7 +229,7 @@ const Products = () => {
           <Button 
             size="icon" 
             variant="ghost" 
-            className="bg-white/90 hover:bg-white shadow-md"
+            className="bg-white/90 hover:bg-white shadow-md backdrop-blur-sm"
             onClick={(e) => {
               e.stopPropagation();
               setSelectedProduct(product);
@@ -291,7 +287,7 @@ const Products = () => {
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
           <span className="text-2xl font-bold text-primary">
-            KES {product.price.toLocaleString()}
+            KES {product.price.toLocaleString()}/sqm
           </span>
           {product.originalPrice && (
             <span className="text-gray-400 line-through">
@@ -302,7 +298,7 @@ const Products = () => {
 
         {/* Add to Cart */}
         <Button 
-          className="w-full bg-primary hover:bg-primary-dark text-white rounded-xl"
+          className="w-full bg-primary hover:bg-primary-dark text-white rounded-xl py-3 transition-all duration-300 hover:scale-[1.02]"
           disabled={!product.inStock}
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
@@ -352,44 +348,57 @@ const Products = () => {
               placeholder="Search products, categories, or features..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 py-4 text-lg rounded-2xl border-gray-200 focus:border-primary"
+              className="pl-12 py-4 text-lg rounded-2xl border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-3 mb-6">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={`rounded-full transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-primary text-white shadow-glow"
-                    : "hover:bg-primary/10"
-                }`}
-              >
-                {category.name}
-                <span className="ml-2 bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                  {category.count}
-                </span>
-              </Button>
-            ))}
-          </div>
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Category Filters */}
+            <div className="md:w-3/4">
+              <div className="flex flex-wrap gap-3">
+                {categories.map((category) => (
+                  <Button
+                    key={category.id}
+                    variant={activeCategory === category.id ? "default" : "outline"}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`rounded-full transition-all duration-300 ${
+                      activeCategory === category.id
+                        ? "bg-primary text-white shadow-glow hover:bg-primary-dark"
+                        : "hover:bg-primary/10 border-2"
+                    }`}
+                  >
+                    {category.name}
+                    <span className="ml-2 bg-white/20 px-2 py-0.5 rounded-full text-xs">
+                      {category.count}
+                    </span>
+                  </Button>
+                ))}
+              </div>
+            </div>
 
-          {/* View Controls */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button variant="outline" size="icon">
-                <Filter className="h-4 w-4" />
-              </Button>
+            {/* Sort & View Controls */}
+            <div className="md:w-1/4 flex flex-col gap-4">
+              <div className="flex gap-2">
+                <label htmlFor="sort-products" className="sr-only">Sort products by</label>
+                <select 
+                  id="sort-products"
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="flex-1 rounded-xl border border-gray-200 p-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary"
+                >
+                  <option value="featured">Featured</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Top Rated</option>
+                </select>
+              </div>
               
               <div className="flex bg-gray-100 rounded-lg p-1">
                 <Button
                   variant={viewMode === "grid" ? "default" : "ghost"}
                   size="icon"
                   onClick={() => setViewMode("grid")}
-                  className="rounded-md"
+                  className="rounded-md flex-1"
                 >
                   <Grid3X3 className="h-4 w-4" />
                 </Button>
@@ -397,16 +406,16 @@ const Products = () => {
                   variant={viewMode === "list" ? "default" : "ghost"}
                   size="icon"
                   onClick={() => setViewMode("list")}
-                  className="rounded-md"
+                  className="rounded-md flex-1"
                 >
                   <List className="h-4 w-4" />
                 </Button>
               </div>
             </div>
+          </div>
 
-            <p className="text-gray-600">
-              Showing {filteredProducts.length} of {products.length} products
-            </p>
+          <div className="mt-4 text-gray-600">
+            Showing {sortedProducts.length} of {products.length} products
           </div>
         </motion.div>
 
@@ -414,24 +423,24 @@ const Products = () => {
         <motion.div
           className={`grid gap-8 ${
             viewMode === "grid" 
-              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
+              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" 
               : "grid-cols-1"
           }`}
         >
-          {filteredProducts.map((product, index) => (
+          {sortedProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
         </motion.div>
 
         {/* Load More */}
-        {filteredProducts.length > 0 && (
+        {sortedProducts.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center mt-16"
           >
-            <Button size="lg" variant="outline" className="rounded-full px-8">
+            <Button size="lg" variant="outline" className="rounded-full px-8 py-3 text-lg hover:shadow-lg transition-all">
               Load More Products
             </Button>
           </motion.div>

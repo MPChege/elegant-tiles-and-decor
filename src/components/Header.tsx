@@ -22,7 +22,8 @@ const Header = () => {
     { name: "Lighting", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Contact", href: "/contact" },
+    { name: "Consultation", href: "/consultation" },
   ];
 
   return (
@@ -37,13 +38,14 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className="text-2xl font-light tracking-wide">
+            <div className="text-2xl font-display font-bold">
               <span className={`transition-colors duration-300 ${
                 isScrolled ? "text-gray-900" : "text-white"
               }`}>
                 Elegant
               </span>
-              <span className="text-pink-600 ml-1">Tiles</span>
+              <br />
+              <span className="text-primary-light">Tiles</span>
             </div>
           </Link>
 
@@ -79,8 +81,9 @@ const Header = () => {
               className={`hidden md:flex h-10 w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-white/90 hover:text-white hover:bg-white/20"
               }`}
+              onClick={() => window.location.href = '/search'}
             >
               <Search className="h-4 w-4" />
             </Button>
@@ -91,8 +94,9 @@ const Header = () => {
               className={`h-10 w-10 p-0 relative transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-white/90 hover:text-white hover:bg-white/20"
               }`}
+              onClick={() => window.location.href = '/cart'}
             >
               <ShoppingCart className="h-4 w-4" />
               <span className="absolute -top-1 -right-1 bg-pink-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px] font-medium">
@@ -106,8 +110,9 @@ const Header = () => {
               className={`hidden md:flex h-10 w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-white/90 hover:text-white hover:bg-white/20"
               }`}
+              onClick={() => window.location.href = '/profile'}
             >
               <User className="h-4 w-4" />
             </Button>
@@ -119,7 +124,7 @@ const Header = () => {
               className={`lg:hidden h-10 w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900" 
-                  : "text-white/80 hover:text-white"
+                  : "text-white/90 hover:text-white"
               }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -144,10 +149,13 @@ const Header = () => {
                   </Link>
                 ))}
                 <div className="border-t border-gray-200 pt-4 flex items-center space-x-4">
-                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0">
+                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/search'; setIsMobileMenuOpen(false); }}>
                     <Search className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0">
+                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/cart'; setIsMobileMenuOpen(false); }}>
+                    <ShoppingCart className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/profile'; setIsMobileMenuOpen(false); }}>
                     <User className="h-4 w-4" />
                   </Button>
                 </div>

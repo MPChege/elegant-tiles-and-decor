@@ -170,6 +170,8 @@ const CartPage = () => {
                         size="icon"
                         onClick={() => removeItem(item.id)}
                         className="text-gray-400 hover:text-red-500"
+                        aria-label={`Remove ${item.name} from cart`}
+                        title={`Remove ${item.name} from cart`}
                       >
                         <X className="h-5 w-5" />
                       </Button>

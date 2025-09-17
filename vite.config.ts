@@ -17,8 +17,17 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          // Split vendor chunks
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          // Split UI components
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tooltip'],
+          // Split utilities
+          utils: ['@tanstack/react-query', 'react-helmet-async', 'framer-motion'],
+        },
       },
     },
+    // Increase chunk size warning limit
+    chunkSizeWarningLimit: 1000,
   },
 }));

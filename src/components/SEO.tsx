@@ -52,6 +52,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="robots" content="index,follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       
+      {/* Mobile specific meta tags */}
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-title" content="Elegant Tiles" />
+      
       {canonical && <link rel="canonical" href={canonical} />}
       
       {/* Open Graph */}

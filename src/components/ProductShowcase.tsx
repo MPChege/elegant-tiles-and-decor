@@ -110,18 +110,18 @@ const ProductShowcase = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/20">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-6"
+            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 md:px-6 md:py-2 mb-4 md:mb-6"
           >
             <RotateCcw className="h-4 w-4 text-primary" />
-            <span className="text-primary text-sm font-medium">3D Product Experience</span>
+            <span className="text-primary text-xs md:text-sm font-medium">3D Product Experience</span>
           </motion.div>
           
           <motion.h2
@@ -129,10 +129,10 @@ const ProductShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-elegant mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground mb-4 md:mb-6"
           >
             Interactive Product
-            <span className="block text-primary mt-2">Showcase</span>
+            <span className="block text-primary mt-1 md:mt-2">Showcase</span>
           </motion.h2>
           
           <motion.p
@@ -140,7 +140,7 @@ const ProductShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-luxury max-w-3xl mx-auto"
+            className="text-base md:text-lg text-muted-foreground max-w-md md:max-w-3xl mx-auto leading-relaxed"
           >
             Experience our products like never before. Rotate, zoom, and explore every detail 
             of our premium tiles, lighting, and decor items.
@@ -148,8 +148,8 @@ const ProductShowcase = () => {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="flex bg-white rounded-2xl p-2 shadow-card">
+        <div className="flex justify-center mb-8 md:mb-12">
+          <div className="flex bg-white rounded-xl md:rounded-2xl p-1.5 md:p-2 shadow-card">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -157,21 +157,21 @@ const ProductShowcase = () => {
                   setSelectedCategory(category.id);
                   setSelectedProduct(0);
                 }}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 ${
+                className={`flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-6 md:py-3 rounded-lg md:rounded-xl transition-all duration-300 text-xs md:text-base ${
                   selectedCategory === category.id
                     ? "bg-primary text-white shadow-lg"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <category.icon className="h-4 w-4" />
-                <span className="font-medium">{category.name}</span>
+                <category.icon className="h-3 w-3 md:h-4 md:w-4" />
+                <span className="font-medium hidden xs:inline">{category.name}</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* Product Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* 3D Product View */}
           <motion.div
             key={selectedCategory + selectedProduct}
@@ -180,7 +180,7 @@ const ProductShowcase = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 relative overflow-hidden group">
+            <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl md:rounded-3xl p-8 md:p-12 relative overflow-hidden group">
               {/* Product Image with 3D Effect */}
               <motion.div
                 animate={{ rotateY: rotation }}
@@ -189,7 +189,7 @@ const ProductShowcase = () => {
                 style={{ perspective: "1000px" }}
               >
                 <div 
-                  className="w-full h-full rounded-2xl shadow-2xl overflow-hidden group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full rounded-xl md:rounded-2xl shadow-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500"
                   style={{ 
                     background: `url(${currentProduct.image}) center/cover`,
                     transform: `rotateY(${rotation}deg)`,
@@ -201,52 +201,52 @@ const ProductShowcase = () => {
               </motion.div>
 
               {/* Interactive Controls */}
-              <div className="absolute top-6 right-6 flex flex-col gap-2">
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 flex flex-col gap-2">
                 <Button
                   size="icon"
                   variant="secondary"
                   onClick={handleRotate}
                   disabled={isRotating}
-                  className="bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg"
+                  className="bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg w-8 h-8 md:w-10 md:h-10"
                 >
-                  <RotateCcw className={`h-4 w-4 ${isRotating ? 'animate-spin' : ''}`} />
+                  <RotateCcw className={`h-3 w-3 md:h-4 md:w-4 ${isRotating ? 'animate-spin' : ''}`} />
                 </Button>
                 
                 <Button
                   size="icon"
                   variant="secondary"
-                  className="bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg"
+                  className="bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg w-8 h-8 md:w-10 md:h-10"
                 >
-                  <ZoomIn className="h-4 w-4" />
+                  <ZoomIn className="h-3 w-3 md:h-4 md:w-4" />
                 </Button>
               </div>
 
               {/* Navigation */}
               <button
                 onClick={prevProduct}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
+                className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
                 aria-label="Previous product"
                 title="Previous product"
               >
-                <ArrowLeft className="h-5 w-5" />
+                <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
               </button>
               
               <button
                 onClick={nextProduct}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
+                className="absolute right-3 md:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors flex items-center justify-center"
                 aria-label="Next product"
                 title="Next product"
               >
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
               </button>
 
               {/* Product Indicators */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+              <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-1.5 md:gap-2">
                 {currentProducts.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedProduct(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
+                    className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
                       index === selectedProduct
                         ? "bg-primary scale-125"
                         : "bg-white/50 hover:bg-white/80"
@@ -265,7 +265,7 @@ const ProductShowcase = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="space-y-5 md:space-y-6"
           >
             {/* Rating */}
             <div className="flex items-center gap-2">
@@ -273,7 +273,7 @@ const ProductShowcase = () => {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-5 w-5 ${
+                    className={`h-4 w-4 md:h-5 md:w-5 ${
                       i < Math.floor(currentProduct.rating)
                         ? "text-yellow-400 fill-current"
                         : "text-gray-300"
@@ -281,33 +281,33 @@ const ProductShowcase = () => {
                   />
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-xs md:text-sm text-muted-foreground">
                 ({currentProduct.rating}) • 156 reviews
               </span>
             </div>
 
             {/* Product Info */}
             <div>
-              <h3 className="text-3xl font-display font-bold text-foreground mb-2">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1.5 md:mb-2">
                 {currentProduct.name}
               </h3>
-              <p className="text-primary text-2xl font-semibold">
+              <p className="text-primary text-xl md:text-2xl font-semibold">
                 {currentProduct.price}
               </p>
             </div>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               {currentProduct.description}
             </p>
 
             {/* Color/Style Options */}
             <div>
-              <h4 className="font-semibold text-foreground mb-3">Available Options</h4>
-              <div className="flex gap-3">
+              <h4 className="font-semibold text-foreground mb-2 md:mb-3 text-sm md:text-base">Available Options</h4>
+              <div className="flex gap-2 md:gap-3">
                 {[...Array(4)].map((_, i) => (
                   <button
                     key={i}
-                    className="w-12 h-12 rounded-lg border-2 border-gray-200 hover:border-primary transition-colors"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-lg border-2 border-gray-200 hover:border-primary transition-colors"
                     style={{
                       background: `hsl(${i * 60}, 50%, ${50 + i * 10}%)`,
                     }}
@@ -319,36 +319,36 @@ const ProductShowcase = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-3 md:gap-4 pt-4">
               <Button 
-                className="btn-luxury flex-1"
+                className="btn-luxury flex-1 text-sm md:text-base"
                 onClick={() => window.location.href = '/consultation'}
               >
-                <ShoppingCart className="mr-2 h-4 w-4" />
+                <ShoppingCart className="mr-1.5 md:mr-2 h-4 w-4" />
                 Book Consultation
               </Button>
               
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="border-primary text-primary hover:bg-primary hover:text-white w-10 h-10 md:w-12 md:h-12"
                 onClick={() => window.location.href = '/products'}
               >
-                <Heart className="h-4 w-4" />
+                <Heart className="h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-2 gap-4 pt-6">
+            <div className="grid grid-cols-2 gap-3 md:gap-4 pt-5 md:pt-6">
               {[
                 { label: "Premium Quality", value: "Guaranteed" },
                 { label: "Delivery", value: "2-3 Days" },
                 { label: "Warranty", value: "5 Years" },
                 { label: "Installation", value: "Available" }
               ].map((feature, index) => (
-                <div key={index} className="bg-secondary/50 p-4 rounded-xl">
-                  <p className="text-sm text-muted-foreground">{feature.label}</p>
-                  <p className="font-semibold text-foreground">{feature.value}</p>
+                <div key={index} className="bg-secondary/50 p-3 md:p-4 rounded-xl">
+                  <p className="text-xs md:text-sm text-muted-foreground">{feature.label}</p>
+                  <p className="font-semibold text-foreground text-sm md:text-base">{feature.value}</p>
                 </div>
               ))}
             </div>

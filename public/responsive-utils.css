@@ -1,0 +1,132 @@
+/* Responsive Utility Classes for Device Compatibility */
+
+/* Mobile first - hidden by default, shown on larger screens */
+@media (max-width: 767px) {
+  .mobile\:hidden {
+    display: none !important;
+  }
+  
+  .mobile\:block {
+    display: block !important;
+  }
+  
+  .mobile\:flex {
+    display: flex !important;
+  }
+  
+  .mobile\:text-sm {
+    font-size: 0.875rem !important;
+  }
+  
+  .mobile\:text-base {
+    font-size: 1rem !important;
+  }
+  
+  .mobile\:p-2 {
+    padding: 0.5rem !important;
+  }
+  
+  .mobile\:p-4 {
+    padding: 1rem !important;
+  }
+  
+  .mobile\:m-2 {
+    margin: 0.5rem !important;
+  }
+  
+  .mobile\:m-4 {
+    margin: 1rem !important;
+  }
+  
+  .mobile\:w-full {
+    width: 100% !important;
+  }
+  
+  .mobile\:flex-col {
+    flex-direction: column !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet\:hidden {
+    display: none !important;
+  }
+  
+  .tablet\:block {
+    display: block !important;
+  }
+  
+  .tablet\:flex {
+    display: flex !important;
+  }
+  
+  .tablet\:text-lg {
+    font-size: 1.125rem !important;
+  }
+  
+  .tablet\:text-xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .tablet\:p-6 {
+    padding: 1.5rem !important;
+  }
+  
+  .tablet\:p-8 {
+    padding: 2rem !important;
+  }
+  
+  .tablet\:m-6 {
+    margin: 1.5rem !important;
+  }
+  
+  .tablet\:m-8 {
+    margin: 2rem !important;
+  }
+  
+  .tablet\:w-1\/2 {
+    width: 50% !important;
+  }
+  
+  .tablet\:flex-row {
+    flex-direction: row !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop\:hidden {
+    display: none !important;
+  }
+  
+  .desktop\:block {
+    display: block !important;
+  }
+  
+  .desktop\:flex {
+    display: flex !important;
+  }
+  
+  .desktop\:text-2xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .desktop\:text-3xl {
+    font-size: 1.875rem !important;
+  }
+  
+  .desktop\:p-10 {
+    padding: 2.5rem !important;
+  }
+  
+  .desktop\:m-10 {
+    margin: 2.5rem !important;
+  }
+  
+  .desktop\:w-1\/3 {
+    width: 33.333333% !important;
+  }
+  
+  .desktop\:flex-row {
+    flex-direction: row !important;
+  }
+}

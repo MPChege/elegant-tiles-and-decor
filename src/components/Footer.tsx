@@ -20,7 +20,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Newsletter Section - Only show on homepage */}
         {isHomePage && (
-          <div className="py-16 border-b border-gray-200">
+          <div className="py-12 md:py-16 border-b border-gray-200">
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-3xl font-light text-gray-900 mb-4">
                 Stay Updated
@@ -45,7 +45,7 @@ const Footer = () => {
         )}
 
         {/* Main Footer Content */}
-        <div className="py-16">
+        <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-2">

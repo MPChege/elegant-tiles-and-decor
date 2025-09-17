@@ -80,8 +80,8 @@ const Categories = () => {
   };
 
   return (
-    <section id="products" className="py-24 bg-gradient-to-b from-background to-secondary/30" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/30" ref={sectionRef}>
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -89,24 +89,24 @@ const Categories = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 md:px-6 md:py-2 mb-4 md:mb-6">
             <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-primary text-sm font-medium">Premium Collection</span>
+            <span className="text-primary text-xs md:text-sm font-medium">Premium Collection</span>
           </div>
           
-          <h2 className="text-elegant mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-foreground mb-4 md:mb-6">
             Discover Our Luxury
-            <span className="block text-primary mt-2">Tiles & Decor Collection</span>
+            <span className="block text-primary mt-1 md:mt-2">Tiles & Decor Collection</span>
           </h2>
           
-          <p className="text-luxury max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-md md:max-w-3xl mx-auto leading-relaxed">
             From exquisite tiles to designer lighting, explore our curated collection of premium 
             interior design materials that combine luxury aesthetics with affordable elegance.
           </p>
         </motion.div>
 
         {/* Categories Grid with Advanced Animations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
           {categories.map((category, index) => (
             <motion.div
               key={index}
@@ -124,13 +124,13 @@ const Categories = () => {
               }}
               onMouseLeave={() => setHoveredCategory(null)}
             >
-              <div className="card-elegant p-8 h-full transition-all duration-500 group-hover:translate-y-[-8px] group-hover:shadow-glow relative overflow-hidden">
+              <div className="card-elegant p-6 md:p-8 h-full transition-all duration-500 group-hover:translate-y-[-8px] group-hover:shadow-glow relative overflow-hidden">
                 {/* Animated Background */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                 
                 {/* Floating Icon with 3D Rotation */}
                 <motion.div 
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${category.color} p-4 mb-6 relative`}
+                  className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r ${category.color} p-3 md:p-4 mb-4 md:mb-6 relative`}
                   animate={rotatingProducts.includes(index) ? { 
                     rotateY: [0, 360],
                     scale: [1, 1.1, 1]
@@ -160,18 +160,18 @@ const Categories = () => {
                     transition: { delay: index * 0.2 + 0.3 }
                   } : {}}
                 >
-                  <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
+                  <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-2">
                     {category.title}
                   </h3>
                   
-                  <p className="text-primary font-semibold text-sm mb-4">{category.price}</p>
+                  <p className="text-primary font-semibold text-xs md:text-sm mb-3 md:mb-4">{category.price}</p>
                   
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6 leading-relaxed">
                     {category.description}
                   </p>
 
                   {/* Animated Items List */}
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                     {category.items.map((item, itemIndex) => (
                       <motion.li 
                         key={itemIndex}
@@ -181,10 +181,10 @@ const Categories = () => {
                           x: 0,
                           transition: { delay: itemIndex * 0.1 }
                         } : { opacity: 1, x: 0 }}
-                        className="flex items-center text-sm text-muted-foreground"
+                        className="flex items-center text-xs md:text-sm text-muted-foreground"
                       >
                         <motion.div 
-                          className="w-1.5 h-1.5 bg-primary rounded-full mr-3"
+                          className="w-1.5 h-1.5 bg-primary rounded-full mr-2 md:mr-3"
                           animate={hoveredCategory === index ? { scale: [1, 1.5, 1] } : {}}
                           transition={{ delay: itemIndex * 0.1 }}
                         />
@@ -197,7 +197,7 @@ const Categories = () => {
                 {/* Interactive CTA */}
                 <Button 
                   variant="ghost" 
-                  className="group/btn p-0 h-auto text-primary hover:text-primary-dark font-medium relative overflow-hidden"
+                  className="group/btn p-0 h-auto text-primary hover:text-primary-dark font-medium relative overflow-hidden text-sm md:text-base"
                 >
                   <span className="relative z-10 flex items-center">
                     Explore Collection
@@ -246,21 +246,21 @@ const Categories = () => {
         </div>
 
         {/* Featured Materials Showcase */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/10 to-primary/5 p-12">
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-elegant mb-6">
+              <h3 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-4 md:mb-6">
                 Featured Material
-                <span className="block text-primary mt-2">Showcase</span>
+                <span className="block text-primary mt-1 md:mt-2">Showcase</span>
               </h3>
               
-              <p className="text-luxury mb-8">
+              <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                 Experience our materials in stunning detail with our 3D visualization tool. 
                 See how each texture, color, and finish transforms your space before you buy.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-luxury">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <Button className="btn-luxury w-full sm:w-auto">
                   View 3D Gallery
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -271,7 +271,7 @@ const Categories = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-luxury">
+              <div className="aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden shadow-luxury">
                 <img 
                   src={categoryImages.tilesShowcase}
                   alt="Premium Materials Showcase"
@@ -280,9 +280,9 @@ const Categories = () => {
               </div>
               
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 bg-primary text-white px-6 py-3 rounded-2xl shadow-luxury">
-                <p className="text-sm font-semibold">500+ Materials</p>
-                <p className="text-xs opacity-90">In Stock</p>
+              <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl shadow-luxury">
+                <p className="text-xs md:text-sm font-semibold">500+ Materials</p>
+                <p className="text-[10px] md:text-xs opacity-90">In Stock</p>
               </div>
             </div>
           </div>

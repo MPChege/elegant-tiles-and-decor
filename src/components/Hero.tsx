@@ -80,7 +80,7 @@ const Hero = () => {
 
   const FloatingCard = ({ delay, icon: Icon, title, position }: { 
     delay: number; 
-    icon: any; 
+    icon: React.ElementType; 
     title: string; 
     position: string;
   }) => (
@@ -121,7 +121,7 @@ const Hero = () => {
       </div>
 
       {/* Animated Particles */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden hidden md:block">
         {[...Array(12)].map((_, i) => (
           <ParticleElement 
             key={i}
@@ -132,22 +132,24 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Morphing Background Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 animate-morphing blur-xl"></div>
-      <div className="absolute bottom-20 right-20 w-40 h-40 bg-white/10 animate-morphing blur-2xl" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-primary/30 animate-morphing blur-lg" style={{ animationDelay: '4s' }}></div>
+      {/* Morphing Background Elements - Hidden on mobile */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 animate-morphing blur-xl hidden md:block"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-white/10 animate-morphing blur-2xl hidden md:block" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-primary/30 animate-morphing blur-lg hidden md:block" style={{ animationDelay: '4s' }}></div>
 
-      {/* Floating Interactive Cards */}
-      <FloatingCard delay={0} icon={Diamond} title="Premium" position="top-20 left-20 hidden lg:flex" />
-      <FloatingCard delay={1} icon={Star} title="Quality" position="top-40 right-32 hidden lg:flex" />
-      <FloatingCard delay={2} icon={Sparkles} title="Luxury" position="bottom-40 left-32 hidden lg:flex" />
-      <FloatingCard delay={3} icon={Zap} title="Modern" position="bottom-20 right-20 hidden lg:flex" />
+      {/* Floating Interactive Cards - Hidden on mobile */}
+      <div className="hidden lg:block">
+        <FloatingCard delay={0} icon={Diamond} title="Premium" position="top-20 left-20" />
+        <FloatingCard delay={1} icon={Star} title="Quality" position="top-40 right-32" />
+        <FloatingCard delay={2} icon={Sparkles} title="Luxury" position="bottom-40 left-32" />
+        <FloatingCard delay={3} icon={Zap} title="Modern" position="bottom-20 right-20" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Animated Badge */}
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-8 py-3 mb-8 animate-fade-in hover:bg-white/20 transition-all duration-300 cursor-pointer group">
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 mb-6 md:mb-8 animate-fade-in hover:bg-white/20 transition-all duration-300 cursor-pointer group">
             <span className="w-3 h-3 bg-primary rounded-full animate-glow"></span>
             <span className="text-white text-sm font-medium group-hover:text-primary-light transition-colors">
               {currentContent.accent}
@@ -156,20 +158,20 @@ const Hero = () => {
           </div>
 
           {/* Main Heading with Stagger Animation */}
-          <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-display font-bold text-white mb-4 animate-slide-up hover:scale-105 transition-transform duration-300 cursor-default">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-white mb-4 animate-slide-up hover:scale-105 transition-transform duration-300 cursor-default">
               {currentContent.title}
             </h1>
-            <span className="block text-5xl md:text-7xl font-display font-bold text-primary-light mt-2 animate-slide-up animate-pulse3d" style={{ animationDelay: '0.2s' }}>
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-primary-light mt-2 animate-slide-up animate-pulse3d" style={{ animationDelay: '0.2s' }}>
               {currentContent.subtitle}
             </span>
           </div>
 
           {/* Typewriter Effect */}
-          <div className="mb-8 h-12 flex items-center justify-center">
+          <div className="mb-6 md:mb-8 h-10 md:h-12 flex items-center justify-center">
             {isTypewriterVisible && (
               <div className="relative">
-                <span className="text-2xl md:text-3xl font-medium text-primary-light animate-typewriter border-r-2 border-primary animate-blink whitespace-nowrap overflow-hidden">
+                <span className="text-lg md:text-2xl lg:text-3xl font-medium text-primary-light animate-typewriter border-r-2 border-primary animate-blink whitespace-nowrap overflow-hidden">
                   {currentContent.typewriterText}
                 </span>
               </div>
@@ -177,25 +179,25 @@ const Hero = () => {
           </div>
 
           {/* Description with Shimmer Effect */}
-          <div className="relative mb-12">
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <div className="relative mb-8 md:mb-12">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
               {currentContent.description}
             </p>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 animate-shimmer opacity-0 hover:opacity-100 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 animate-shimmer opacity-0 hover:opacity-100 transition-opacity hidden md:block"></div>
           </div>
 
           {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-slide-up" style={{ animationDelay: '0.6s' }}>
-            <Button className="btn-hero group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-12 animate-slide-up" style={{ animationDelay: '0.6s' }}>
+            <Button className="btn-hero group relative overflow-hidden w-full sm:w-auto">
+              <span className="relative z-10 flex items-center justify-center sm:justify-start">
                 {currentContent.cta}
                 <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Button>
             
-            <Button className="btn-elegant group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
+            <Button className="btn-elegant group relative overflow-hidden w-full sm:w-auto">
+              <span className="relative z-10 flex items-center justify-center sm:justify-start">
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 {currentContent.secondaryCta}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -205,7 +207,7 @@ const Hero = () => {
           </div>
 
           {/* Interactive Slide Indicators */}
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-3 md:space-x-4">
             {heroSlides.map((_, index) => (
               <button
                 key={index}
@@ -220,13 +222,13 @@ const Hero = () => {
                     : "hover:scale-110"
                 }`}
               >
-                <div className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                <div className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
                   index === currentSlide 
                     ? "bg-primary shadow-glow" 
                     : "bg-white/30 group-hover:bg-white/60"
                 }`}></div>
                 {index === currentSlide && (
-                  <div className="absolute inset-0 w-4 h-4 rounded-full bg-primary animate-ping opacity-40"></div>
+                  <div className="absolute inset-0 w-3 h-3 md:w-4 md:h-4 rounded-full bg-primary animate-ping opacity-40"></div>
                 )}
               </button>
             ))}
@@ -234,19 +236,19 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Enhanced Scroll Indicator - Hidden on mobile */}
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
         <div className="group cursor-pointer">
-          <div className="w-8 h-12 border-2 border-white/50 rounded-full p-1 group-hover:border-white/80 transition-colors">
-            <div className="w-2 h-4 bg-gradient-to-b from-white to-primary rounded-full mx-auto animate-bounce"></div>
+          <div className="w-6 h-10 md:w-8 md:h-12 border-2 border-white/50 rounded-full p-1 group-hover:border-white/80 transition-colors">
+            <div className="w-1.5 h-3 md:w-2 md:h-4 bg-gradient-to-b from-white to-primary rounded-full mx-auto animate-bounce"></div>
           </div>
           <p className="text-white/60 text-xs mt-2 group-hover:text-white/80 transition-colors">Scroll</p>
         </div>
       </div>
 
-      {/* Ambient Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse3d opacity-50"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse3d opacity-30" style={{ animationDelay: '1.5s' }}></div>
+      {/* Ambient Glow Effects - Reduced on mobile */}
+      <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse3d opacity-30 md:opacity-50"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-40 h-40 md:w-80 md:h-80 bg-white/5 rounded-full blur-3xl animate-pulse3d opacity-20 md:opacity-30" style={{ animationDelay: '1.5s' }}></div>
     </section>
   );
 };

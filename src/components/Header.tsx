@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Menu, X, ShoppingCart, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { useResponsive } from "@/hooks/useResponsive";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { isMobile, isTablet } = useResponsive();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +40,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className="text-2xl font-display font-bold">
+            <div className="text-xl md:text-2xl font-display font-bold">
               <span className={`transition-colors duration-300 ${
                 isScrolled ? "text-gray-900" : "text-white"
               }`}>
@@ -50,7 +52,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-12">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
@@ -74,11 +76,11 @@ const Header = () => {
           </div>
 
           {/* Action Icons */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 md:space-x-3">
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`hidden md:flex h-10 w-10 p-0 transition-colors ${
+              className={`hidden ${isTablet ? 'sm:flex' : 'md:flex'} h-9 w-9 md:h-10 md:w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
                   : "text-white/90 hover:text-white hover:bg-white/20"
@@ -91,7 +93,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`h-10 w-10 p-0 relative transition-colors ${
+              className={`h-9 w-9 md:h-10 md:w-10 p-0 relative transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
                   : "text-white/90 hover:text-white hover:bg-white/20"
@@ -107,7 +109,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`hidden md:flex h-10 w-10 p-0 transition-colors ${
+              className={`hidden ${isTablet ? 'sm:flex' : 'md:flex'} h-9 w-9 md:h-10 md:w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
                   : "text-white/90 hover:text-white hover:bg-white/20"
@@ -121,7 +123,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="sm"
-              className={`lg:hidden h-10 w-10 p-0 transition-colors ${
+              className={`md:hidden h-9 w-9 md:h-10 md:w-10 p-0 transition-colors ${
                 isScrolled 
                   ? "text-gray-600 hover:text-gray-900" 
                   : "text-white/90 hover:text-white"
@@ -135,7 +137,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
             <div className="container mx-auto px-4 py-6">
               <div className="flex flex-col space-y-4">
                 {navigationItems.map((item) => (
@@ -149,13 +151,13 @@ const Header = () => {
                   </Link>
                 ))}
                 <div className="border-t border-gray-200 pt-4 flex items-center space-x-4">
-                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/search'; setIsMobileMenuOpen(false); }}>
+                  <Button variant="ghost" size="sm" className="h-9 w-9 p-0" onClick={() => { window.location.href = '/search'; setIsMobileMenuOpen(false); }}>
                     <Search className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/cart'; setIsMobileMenuOpen(false); }}>
+                  <Button variant="ghost" size="sm" className="h-9 w-9 p-0" onClick={() => { window.location.href = '/cart'; setIsMobileMenuOpen(false); }}>
                     <ShoppingCart className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-10 w-10 p-0" onClick={() => { window.location.href = '/profile'; setIsMobileMenuOpen(false); }}>
+                  <Button variant="ghost" size="sm" className="h-9 w-9 p-0" onClick={() => { window.location.href = '/profile'; setIsMobileMenuOpen(false); }}>
                     <User className="h-4 w-4" />
                   </Button>
                 </div>

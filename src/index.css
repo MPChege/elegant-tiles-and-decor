@@ -8,53 +8,54 @@
 
 @layer base {
   :root {
-    /* Core Brand Colors - Maroon & Rose Pink Theme */
+    /* Core Brand Colors - Sophisticated Navy & Gold Theme */
     --background: 0 0% 100%;
-    --foreground: 0 0% 13%;
+    --foreground: 210 30% 15%;
     
-    /* Elegant Maroon Primary */
-    --primary: 345 65% 35%; /* #8B1C3F - Deep Maroon */
+    /* Elegant Navy & Gold */
+    --primary: 210 50% 20%; /* #1A2F3F - Deep Navy Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 340 85% 65%; /* #E84C88 - Rose Pink */
-    --primary-dark: 345 85% 25%; /* Darker Maroon */
+    --primary-light: 210 40% 35%; /* Lighter Navy */
+    --primary-dark: 210 60% 12%; /* Darker Navy */
+    
+    /* Gold Accent */
+    --accent: 38 70% 55%; /* #C9974A - Elegant Gold */
+    --accent-foreground: 210 50% 20%;
     
     /* Premium Neutrals */
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 255 6% 13%;
+    --secondary: 30 15% 95%; /* Warm off-white */
+    --secondary-foreground: 210 30% 15%;
     
     /* UI Elements */
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-    
-    --accent: 276 100% 97%;
-    --accent-foreground: 276 100% 35%;
+    --muted: 30 10% 92%;
+    --muted-foreground: 210 15% 45%;
     
     --card: 0 0% 100%;
-    --card-foreground: 255 6% 13%;
+    --card-foreground: 210 30% 15%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 255 6% 13%;
+    --popover-foreground: 210 30% 15%;
     
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 276 100% 35%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 38 70% 55%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    /* Premium Gradients */
+    /* Sophisticated Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(var(--primary-dark) / 0.9));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.7), hsl(var(--primary-dark) / 0.85));
     --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary)));
-    --gradient-glass: linear-gradient(145deg, hsl(var(--background) / 0.8), hsl(var(--secondary) / 0.4));
+    --gradient-glass: linear-gradient(145deg, hsl(var(--background) / 0.95), hsl(var(--secondary) / 0.6));
     
-    /* Luxury Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
-    --shadow-luxury: 0 20px 40px -15px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
+    /* Refined Shadows */
+    --shadow-elegant: 0 2px 20px -5px hsl(var(--primary) / 0.12);
+    --shadow-luxury: 0 4px 30px -8px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 1px 10px -2px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 20px hsl(var(--accent) / 0.2);
     
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,32 +64,32 @@
   }
 
   .dark {
-    --background: 255 6% 6%;
+    --background: 210 30% 8%;
     --foreground: 0 0% 98%;
     
-    --primary: 276 100% 45%;
+    --primary: 210 50% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 276 100% 75%;
-    --primary-dark: 276 100% 35%;
+    --primary-light: 210 40% 40%;
+    --primary-dark: 210 60% 15%;
     
-    --secondary: 240 6% 10%;
+    --secondary: 210 20% 12%;
     --secondary-foreground: 0 0% 98%;
     
-    --muted: 240 6% 10%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 210 20% 12%;
+    --muted-foreground: 210 10% 65%;
     
-    --accent: 276 100% 15%;
-    --accent-foreground: 276 100% 85%;
+    --accent: 38 70% 55%;
+    --accent-foreground: 210 30% 8%;
     
-    --card: 255 6% 8%;
+    --card: 210 25% 10%;
     --card-foreground: 0 0% 98%;
     
-    --popover: 255 6% 8%;
+    --popover: 210 25% 10%;
     --popover-foreground: 0 0% 98%;
     
-    --border: 240 6% 15%;
-    --input: 240 6% 15%;
-    --ring: 276 100% 45%;
+    --border: 210 20% 18%;
+    --input: 210 20% 18%;
+    --ring: 38 70% 55%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -124,54 +125,54 @@
 }
 
 @layer components {
-  /* Premium Button Variants */
+  /* Sophisticated Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-primary-dark text-primary-foreground 
-           hover:shadow-luxury hover:scale-105 transition-all duration-300 
-           font-semibold px-8 py-4 rounded-xl;
+    @apply bg-primary text-primary-foreground border border-accent/20
+           hover:bg-primary-light hover:border-accent transition-all duration-300 
+           font-medium px-10 py-4 rounded-sm uppercase tracking-wider text-sm;
   }
   
   .btn-elegant {
-    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-primary
-           hover:bg-white hover:text-primary hover:shadow-card
-           transition-all duration-300 px-6 py-3 rounded-lg font-medium;
+    @apply bg-transparent border border-white/30 text-white
+           hover:bg-white/10 hover:border-white/50
+           transition-all duration-300 px-8 py-3 rounded-sm font-medium uppercase tracking-wider text-sm;
   }
   
   .btn-luxury {
-    @apply bg-gradient-to-r from-primary/90 to-primary text-primary-foreground
-           hover:from-primary hover:to-primary-dark hover:shadow-glow
-           transition-all duration-500 px-8 py-4 rounded-xl font-semibold
-           transform hover:scale-105;
+    @apply bg-accent text-accent-foreground
+           hover:bg-accent/90 hover:shadow-elegant
+           transition-all duration-300 px-10 py-4 rounded-sm font-medium
+           uppercase tracking-wider text-sm;
   }
   
-  /* Glass Morphism Cards */
+  /* Refined Cards */
   .card-glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 
-           rounded-2xl shadow-card hover:shadow-luxury 
-           transition-all duration-300 hover:scale-105;
+    @apply bg-white/95 backdrop-blur-sm border border-border/30 
+           rounded-sm shadow-elegant hover:shadow-luxury 
+           transition-all duration-300 hover:translate-y-[-2px];
   }
   
   .card-elegant {
-    @apply bg-gradient-to-br from-white to-secondary/50
-           border border-border/50 rounded-2xl shadow-card
-           hover:shadow-luxury transition-all duration-300
-           hover:translate-y-[-4px];
+    @apply bg-white
+           border border-border/30 rounded-sm shadow-card
+           hover:shadow-elegant transition-all duration-300
+           hover:translate-y-[-2px];
   }
   
-  /* Luxury Text Styles */
+  /* Sophisticated Text Styles */
   .text-hero {
-    @apply font-display text-5xl md:text-7xl font-bold 
-           bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent
+    @apply font-display text-4xl md:text-6xl lg:text-7xl font-normal 
+           text-white uppercase tracking-[0.15em]
            leading-tight;
   }
   
   .text-elegant {
-    @apply font-display text-3xl md:text-4xl font-semibold text-foreground
-           leading-tight;
+    @apply font-display text-2xl md:text-3xl lg:text-4xl font-light text-foreground
+           leading-tight tracking-wide;
   }
   
   .text-luxury {
-    @apply font-body text-lg text-muted-foreground leading-relaxed;
+    @apply font-body text-base text-muted-foreground leading-relaxed tracking-wide;
   }
   
   /* Interactive Hover Effects */
